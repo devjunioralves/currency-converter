@@ -2,9 +2,9 @@
   "compilerOptions": {
     "target": "es2022",
     "module": "commonjs",
-    "rootDir": "src",
+    "rootDir": "tests",
     "moduleResolution": "node",
-    "baseUrl": "src",
+    "baseUrl": "tests",
     "paths": {
       "@/*": ["*"],
       "@/tests/*":["../tests/*"]
@@ -19,5 +19,5 @@
     "strictPropertyInitialization": true,
     "noImplicitAny": true
   },
-  "include": ["src"],
+  "include": ["tests"],
 }
