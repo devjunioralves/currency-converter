@@ -1,17 +1,16 @@
+import { MissingParamError } from '@/presentation/errors/MissingParamError'
+import { badRequest } from '@/presentation/helpers/HttpHelper'
 import { ConversionController } from './Conversion'
 
 describe('Conversion Controller', () => {
-  it('Should return 400 if no coin is provided', async () => {
+  it('Should return 400 if no currency origin is provided', async () => {
     const conversionController = new ConversionController()
     const httpResponse = await conversionController.handle({
       body: {
-        coin: '',
-        value: 1
+        value: 1,
+        to: 'BRL'
       }
     })
-    expect(httpResponse).toEqual({
-      statusCode: 400,
-      body: new Error('Missing param: coin')
-    })
+    expect(httpResponse).toEqual(badRequest(new MissingParamError('from')))
   })
 })
