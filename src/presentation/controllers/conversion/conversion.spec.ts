@@ -24,4 +24,15 @@ describe('Conversion Controller', () => {
     })
     expect(httpResponse).toEqual(badRequest(new MissingParamError('to')))
   })
+
+  it('Should return 400 if no value is provided', async () => {
+    const conversionController = new ConversionController()
+    const httpResponse = await conversionController.handle({
+      body: {
+        from:'USD',
+        to:'BRL'
+      }
+    })
+    expect(httpResponse).toEqual(badRequest(new MissingParamError('value')))
+  })
 })
