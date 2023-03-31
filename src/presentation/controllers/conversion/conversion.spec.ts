@@ -2,7 +2,7 @@ import { type IConvertedCurrencyModel } from '@/domain/models/IConvertedCurrency
 import { type IConvertCurrency, type IConvertCurrencyModel } from '@/domain/usecases/ConvertCurrency'
 import { InvalidParamError } from '@/presentation/errors/InvalidParamError'
 import { MissingParamError } from '@/presentation/errors/MissingParamError'
-import { badRequest, serverError } from '@/presentation/helpers/HttpHelper'
+import { badRequest, ok, serverError } from '@/presentation/helpers/HttpHelper'
 import { ConversionController } from './Conversion'
 
 const makeFakeConvertedCurrency = (): IConvertedCurrencyModel => ({
@@ -131,5 +131,17 @@ describe('Conversion Controller', () => {
       }
     })
     expect(httpResponse).toEqual(serverError(new Error()))
+  })
+
+  it('Should return 200 if valid data are provided', async () => {
+    const { sut } = makeSut()
+    const httpResponse = await sut.handle({
+      body: {
+        to: 'BRL',
+        from: 'USD',
+        value: 1
+      }
+    })
+    expect(httpResponse).toEqual(ok(makeFakeConvertedCurrency()))
   })
 })
