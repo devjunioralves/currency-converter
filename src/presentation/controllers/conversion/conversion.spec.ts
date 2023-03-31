@@ -2,7 +2,7 @@ import { type IConvertedCurrencyModel } from '@/domain/models/IConvertedCurrency
 import { type IConvertCurrency, type IConvertCurrencyModel } from '@/domain/usecases/ConvertCurrency'
 import { InvalidParamError } from '@/presentation/errors/InvalidParamError'
 import { MissingParamError } from '@/presentation/errors/MissingParamError'
-import { badRequest } from '@/presentation/helpers/HttpHelper'
+import { badRequest, serverError } from '@/presentation/helpers/HttpHelper'
 import { ConversionController } from './Conversion'
 
 const makeFakeConvertedCurrency = (): IConvertedCurrencyModel => ({
@@ -117,5 +117,19 @@ describe('Conversion Controller', () => {
       from: 'USD',
       amount: 1
     })
+  })
+
+  it('Should return 500 if ConvertCurrency throws', async () => {
+    const { sut, convertCurrencyStub} = makeSut()
+    jest.spyOn(convertCurrencyStub, 'convert').mockReturnValueOnce(new Promise((resolve, reject) => { reject(new Error()); }))
+
+    const httpResponse = await sut.handle({
+      body: {
+        to: 'BRL',
+        from: 'USD',
+        value: 1
+      }
+    })
+    expect(httpResponse).toEqual(serverError(new Error()))
   })
 })
