@@ -1,7 +1,7 @@
 import { type IConvertCurrency } from "@/domain/usecases/ConvertCurrency";
 import { InvalidParamError } from "@/presentation/errors/InvalidParamError";
 import { MissingParamError } from "@/presentation/errors/MissingParamError";
-import { badRequest, serverError } from "@/presentation/helpers/HttpHelper";
+import { badRequest, ok, serverError } from "@/presentation/helpers/HttpHelper";
 import {  type IController } from "@/presentation/protocols/IController";
 import { type IHttpRequest, type IHttpResponse } from "@/presentation/protocols/IHttp";
 
@@ -32,16 +32,13 @@ export class ConversionController implements IController {
         return badRequest(new InvalidParamError('to'))
       }
 
-      await this.convertCurrency.convert({
+      const convertedCurrency = await this.convertCurrency.convert({
         from: httpRequest.body.from,
         to: httpRequest.body.to,
         amount: httpRequest.body.value
       })
 
-      return await new Promise(resolve => { resolve({
-        statusCode: 400,
-        body: new Error('Missing param: coin')
-      }); })
+      return ok(convertedCurrency)
     } catch (error) {
       return serverError(error as Error)
     }
