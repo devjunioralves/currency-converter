@@ -1,3 +1,4 @@
+import { InvalidParamError } from '@/presentation/errors/InvalidParamError'
 import { MissingParamError } from '@/presentation/errors/MissingParamError'
 import { badRequest } from '@/presentation/helpers/HttpHelper'
 import { ConversionController } from './Conversion'
@@ -34,5 +35,29 @@ describe('Conversion Controller', () => {
       }
     })
     expect(httpResponse).toEqual(badRequest(new MissingParamError('value')))
+  })
+
+  it('Should return 400 if invalid currency origin is provided', async () => {
+    const conversionController = new ConversionController()
+    const httpResponse = await conversionController.handle({
+      body: {
+        from:'BTC',
+        to:'BRL',
+        value: 1
+      }
+    })
+    expect(httpResponse).toEqual(badRequest(new InvalidParamError('from')))
+  })
+
+  it('Should return 400 if invalid currency destination is provided', async () => {
+    const conversionController = new ConversionController()
+    const httpResponse = await conversionController.handle({
+      body: {
+        from:'USD',
+        to:'BTC',
+        value: 1
+      }
+    })
+    expect(httpResponse).toEqual(badRequest(new InvalidParamError('to')))
   })
 })
