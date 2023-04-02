@@ -121,4 +121,19 @@ describe('ConvertCurrency UseCase', () => {
     })
     expect(addSpy).toHaveBeenCalledWith(makeFakeConvertedCurrency())
   })
+
+  it('Should throw if AddConversionRepository throws', async () => {
+    const { sut, addConversionRepositoryStub } = makeSut()
+    jest.spyOn(addConversionRepositoryStub, 'add').mockReturnValueOnce(
+      new Promise((resolve, reject) => {
+        reject(new Error())
+      })
+    )
+    const promise = sut.convert({
+      from: 'USD',
+      to: 'BRL',
+      amount: 1,
+    })
+    await expect(promise).rejects.toThrow()
+  })
 })
