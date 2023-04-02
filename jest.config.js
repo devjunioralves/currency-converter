@@ -1,5 +1,5 @@
 module.exports = {
-  collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
+  collectCoverageFrom: ['<rootDir>/src/**/*.ts', '!<rootDir>/src/main/**'],
   coverageDirectory: "coverage",
   moduleNameMapper: {
     "@/(.*)": "<rootDir>/src/$1",
