@@ -16,7 +16,10 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "module-alias": "^2.2.2"
+    "@types/sqlite3": "^3.1.8",
+    "module-alias": "^2.2.2",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.6"
   },
   "devDependencies": {
     "@types/jest": "^29.5.0",
