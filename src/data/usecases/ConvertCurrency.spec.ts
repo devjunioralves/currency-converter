@@ -1,7 +1,7 @@
 import { type IConvertedCurrencyModel } from '@/domain/models/IConvertedCurrency'
 import { type ITransaction } from '@/domain/models/ITransaction'
 import { type IConvertCurrencyModel } from '@/domain/usecases/ConvertCurrency'
-import { type IAddConversionRepository } from '../protocols/AddConversionRepository'
+import { type IAddConversionRepository } from '../protocols/IAddConversionRepository'
 import { ConvertCurrency } from './ConvertCurrency'
 
 interface IConverter {

@@ -1,4 +1,4 @@
-import { type IAddConversionRepository } from "@/data/protocols/AddConversionRepository";
+import { type IAddConversionRepository } from "@/data/protocols/IAddConversionRepository";
 import { type IConvertedCurrencyModel } from "@/domain/models/IConvertedCurrency";
 import { type ITransaction } from "@/domain/models/ITransaction";
 import { insertTransaction } from "@/infra/Db/SQLite/helpers/SQLiteHelper";
