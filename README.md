@@ -72,4 +72,4 @@ A arquitetura utilizada será "Clean Architecture". Esta arquitetura foi escolhi
 o projeto seja escalável, de fácil manutenção e flexível. As camadas nessa arquitetura tem como coração do sistema a camada
 Domain, nessa camada está definido as regras do negócio. Também contém as camadas de data, onde está os casos de uso, camada de infra,
 onde está a comunicação com o banco de dados utilizado em questão e ainda tem a camada presentation, onde é disponibilizado a porta de entrada
-e saída da aplicação. No decorrer do desenvolvimento é utilizado alguns padrões de desenvolvimento como Decorator, alguns princípios do SOLID, práticas como TDD também, entre outras boas práticas.
+e saída da aplicação. No decorrer do desenvolvimento é utilizado alguns design patterns como Decorator, alguns princípios do SOLID, boas práticas como TDD também entre outras.
