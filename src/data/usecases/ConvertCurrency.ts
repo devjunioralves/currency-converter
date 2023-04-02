@@ -8,6 +8,7 @@ export class ConvertCurrency implements IConvertCurrency {
     private readonly addConversionRepository: IAddConversionRepository
   ) {
     this.convertCurrency = convertCurrency
+    this.addConversionRepository = addConversionRepository
   }
 
   async convert (data: IConvertCurrencyModel): Promise<ITransaction> {
