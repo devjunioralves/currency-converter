@@ -76,7 +76,7 @@ const makeSut = (): SutTypes => {
   return {
     sut,
     converterStub,
-    addConversionRepositoryStub
+    addConversionRepositoryStub,
   }
 }
 
@@ -135,5 +135,30 @@ describe('ConvertCurrency UseCase', () => {
       amount: 1,
     })
     await expect(promise).rejects.toThrow()
+  })
+
+  it('Should return an transaction converted on success', async () => {
+    const { sut } = makeSut()
+    const transaction = await sut.convert({
+      from: 'USD',
+      to: 'BRL',
+      amount: 1,
+    })
+    expect(transaction).toEqual({
+      id: 'any_id',
+      date: '2018-02-22',
+      historical: '',
+      info: {
+        rate: 148.972231,
+        timestamp: 1519328414,
+      },
+      query: {
+        amount: 25,
+        from: 'GBP',
+        to: 'JPY',
+      },
+      result: 3724.305775,
+      success: true,
+    })
   })
 })
