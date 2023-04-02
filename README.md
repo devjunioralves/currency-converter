@@ -1,51 +1,75 @@
 # Conversor de moedas
 
-Você deverá implementar uma API Rest que seja capaz de realizar a conversão entre duas moedas
-utilizando taxas de conversões atualizadas de um serviço externo.
+Vocï¿½ deverï¿½ implementar uma API Rest que seja capaz de realizar a conversï¿½o entre duas moedas
+utilizando taxas de conversï¿½es atualizadas de um serviï¿½o externo.
 
-Para realização da conversão é necessário o ID do usuário que deseja realizar a conversão.
+Para realizaï¿½ï¿½o da conversï¿½o ï¿½ necessï¿½rio o ID do usuï¿½rio que deseja realizar a conversï¿½o.
 
-A API deverá registrar cada transação de conversão com todas as informações relacionadas e também
-disponibilizar um endpoint para consulta das transações realizadas por um usuário.
+A API deverï¿½ registrar cada transaï¿½ï¿½o de conversï¿½o com todas as informaï¿½ï¿½es relacionadas e tambï¿½m
+disponibilizar um endpoint para consulta das transaï¿½ï¿½es realizadas por um usuï¿½rio.
 
-O projeto deverá ser feito em Node.js com TypeScript.
+O projeto deverï¿½ ser feito em Node.js com TypeScript.
 
-1. Deve ser possível realizar a conversão entre 4 moedas no mínimo (BRL, USD, EUR, JPY);
-1. As taxas de conversão devem ser obtidas de [https://api.exchangeratesapi.io/latest?base=EUR] 
-  (Usar a API Free - Tem limitação de requisições, e apenas conversão com base na moeda EUR);
-1. As transações de conversão devem ser persistidas no banco de dados (embedded) contendo:
-    * ID do usuário;
-    * Moeda origem;
-    * Valor origem;
-    * Moeda destino;
-    * Taxa de conversão utilizada;
-    * Data/Hora UTC;
-1. Uma transação com sucesso deve retornar:
-    * ID da transação
-    * ID do usuário;
-    * Moeda origem;
-    * Valor origem;
-    * Moeda destino;
-    * Valor destino;
-    * Taxa de conversão utilizada;
-    * Data/Hora UTC;
-1. Os casos de falha devem retornar com status code pertinente e descrição no corpo;
-1. Deverá existir um endpoint para listagem de todas as transações realizadas por usuário;
-1. Deve haver uma cobertura satisfatória de testes;
-1. Deve-se adicionar a esse arquivo explicações sobre como rodar a aplicação, e uma apresentação sobre o
-projeto: propósito, features, motivação das principais escolhas de tecnologias, e separação das camadas;
-1. Todo o código deve ser em inglês;
-1. Disponibilizar o código apenas nesse repositório, sem nenhuma cópia pública, para evitar plágio;
+1. Deve ser possï¿½vel realizar a conversï¿½o entre 4 moedas no mï¿½nimo (BRL, USD, EUR, JPY);
+1. As taxas de conversï¿½o devem ser obtidas de [https://api.exchangeratesapi.io/latest?base=EUR]
+   (Usar a API Free - Tem limitaï¿½ï¿½o de requisiï¿½ï¿½es, e apenas conversï¿½o com base na moeda EUR);
+1. As transaï¿½ï¿½es de conversï¿½o devem ser persistidas no banco de dados (embedded) contendo:
+   - ID do usuï¿½rio;
+   - Moeda origem;
+   - Valor origem;
+   - Moeda destino;
+   - Taxa de conversï¿½o utilizada;
+   - Data/Hora UTC;
+1. Uma transaï¿½ï¿½o com sucesso deve retornar:
+   - ID da transaï¿½ï¿½o
+   - ID do usuï¿½rio;
+   - Moeda origem;
+   - Valor origem;
+   - Moeda destino;
+   - Valor destino;
+   - Taxa de conversï¿½o utilizada;
+   - Data/Hora UTC;
+1. Os casos de falha devem retornar com status code pertinente e descriï¿½ï¿½o no corpo;
+1. Deverï¿½ existir um endpoint para listagem de todas as transaï¿½ï¿½es realizadas por usuï¿½rio;
+1. Deve haver uma cobertura satisfatï¿½ria de testes;
+1. Deve-se adicionar a esse arquivo explicaï¿½ï¿½es sobre como rodar a aplicaï¿½ï¿½o, e uma apresentaï¿½ï¿½o sobre o
+   projeto: propï¿½sito, features, motivaï¿½ï¿½o das principais escolhas de tecnologias, e separaï¿½ï¿½o das camadas;
+1. Todo o cï¿½digo deve ser em inglï¿½s;
+1. Disponibilizar o cï¿½digo apenas nesse repositï¿½rio, sem nenhuma cï¿½pia pï¿½blica, para evitar plï¿½gio;
 
-## Itens desejáveis
-* Logs
-* Tratamento de exceções
-* Documentação
-* Coesão de commits
-* Mensagens de commits claras
-* Configuração de lint
-* Testes unitários
-* Testes de integração
-* Documentação dos endpoints
-* Estar rodando e disponível (Ex: Heroku, ou similar)
-* CI/CD
+## Itens desejï¿½veis
+
+- Logs
+- Tratamento de exceï¿½ï¿½es
+- Documentaï¿½ï¿½o
+- Coesï¿½o de commits
+- Mensagens de commits claras
+- Configuraï¿½ï¿½o de lint
+- Testes unitï¿½rios
+- Testes de integraï¿½ï¿½o
+- Documentaï¿½ï¿½o dos endpoints
+- Estar rodando e disponï¿½vel (Ex: Heroku, ou similar)
+- CI/CD
+
+## InstruÃ§Ãµes para rodar a aplicaÃ§Ã£o
+
+1. Rodar o comando 'yarn' para instalar as dependeÃªncias da aplicaÃ§Ã£o
+2. Rodar o comando 'yarn dev' para iniciar o servidor
+
+### O Projeto
+
+Se trata de um projeto simples, nÃ£o tem finalidade comporativa e sim para demonstrar um breve conhecimento
+nas stacks e prÃ¡ticas utilizadas. O propÃ³sito desse projeto Ã© demonstrar habilidades a fim de desenvolver
+um simples conversor de moedas, contendo apenas dois endpoints, sendo eles para consultar a conversÃ£o
+atual de uma moeda e outro para listar as conversÃµes realizadas.
+Para esse projeto estÃ¡ sendo utilizado algumas bibliotecas com performance e de fÃ¡cil entendimento. Para persistir os
+dados estÃ¡ sendo utilizado um bando embarcado sqlite3, um banco leve e de fÃ¡cil configuraÃ§Ã£o. Para realizar os testes unitÃ¡rios
+serÃ¡ utilizado Jest e para as requisiÃ§Ãµes HTTP serÃ¡ utilizado Express.
+
+### Arquitetura
+
+A arquitetura utilizada serÃ¡ "Clean Architecture". Esta arquitetura foi escolhida com intuito de desacoplar e permitir que
+o projeto seja escalÃ¡vel, de fÃ¡cil manutenÃ§Ã£o e flexÃ­vel. As camadas nessa arquitetura tem como coraÃ§Ã£o do sistema a camada
+Domain, nessa camada estÃ¡ definido as regras do negÃ³cio. TambÃ©m contÃ©m as camadas de data, onde estÃ¡ os casos de uso, camada de infra,
+onde estÃ¡ a comunicaÃ§Ã£o com o banco de dados utilizado em questÃ£o e ainda tem a camada presentation, onde Ã© disponibilizado a porta de entrada
+e saÃ­da da aplicaÃ§Ã£o. No decorrer do desenvolvimento Ã© utilizado alguns padrÃµes de desenvolvimento como Decorator, alguns princÃ­pios do SOLID, prÃ¡ticas como TDD tambÃ©m, entre outras boas prÃ¡ticas.
