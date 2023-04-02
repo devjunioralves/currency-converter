@@ -60,4 +60,19 @@ describe('ConversionApiAdapter', () => {
       success: true,
     })
   })
+
+  it('Should throw if fetch throws', async () => {
+    const sut = makeSut()
+    jest.spyOn(global, 'fetch').mockReturnValueOnce(
+      new Promise((resolve, reject) => {
+        reject(new Error())
+      }),
+    )
+    const promise = sut.convert({
+      from: 'USD',
+      to: 'BRL',
+      amount: 1,
+    })
+    await expect(promise).rejects.toThrow()
+  })
 })
