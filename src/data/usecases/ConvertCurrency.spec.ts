@@ -60,4 +60,15 @@ describe('ConvertCurrency UseCase', () => {
       amount: 1
     })
   })
+
+  it('Should throw error if converter throws', async () => {
+    const { sut, converterStub } = makeSut()
+    jest.spyOn(converterStub, 'convert').mockReturnValueOnce(new Promise((resolve, reject) => { reject(new Error()); }))
+    const promise = sut.convert({
+      from: 'USD',
+      to: 'BRL',
+      amount: 1
+    })
+    await expect(promise).rejects.toThrow()
+  })
 })
