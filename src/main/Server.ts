@@ -1,4 +1,4 @@
-import { openDb } from '@/infra/Db/SQLite/helpers/SQLiteHelper';
+import { openDb } from '@/infra/db/sqlite/helpers/SQLiteHelper';
 
 void openDb().then(async () => {
   const app = (await import('./config/App')).default
