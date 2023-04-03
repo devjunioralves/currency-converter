@@ -31,4 +31,9 @@ describe('ConversionRepository', () => {
     expect(result).toHaveProperty('result')
     expect(result).toHaveProperty('success')
   })
+  it('Should return an empty array if there are no transactions', async () => {
+    const sut = makeSut()
+    const result = await sut.list()
+    expect(result).toHaveProperty('length')
+  })
 })
