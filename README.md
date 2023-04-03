@@ -65,8 +65,8 @@ atual de uma moeda e outro para listar as conversões realizadas.
 Para esse projeto está sendo utilizado algumas bibliotecas com performance e de fácil entendimento. Para persistir os
 dados está sendo utilizado um bando embarcado sqlite3, um banco leve e de fácil configuração. Para realizar os testes unitários
 será utilizado Jest e para as requisições HTTP será utilizado Express.
-O projeto não está finalizado com o proposto. Ele contém a principal rota do projeto que é para retornar a conversão de moeda,
-essa rota deve ser chamada com os seguintes parâmetros.
+
+Nesse repositório contém uma collection exportada do postman para realizar os testes das rotas
 
 POST => http://localhost:3000/api/conversion
 body {
@@ -74,6 +74,8 @@ body {
 "to":"USD",
 "value": 1
 }
+
+GET => http://localhost:3000/api/conversion
 
 As moedas disponíveis para conversão são: BRL, USD, EUR, JPY
 
