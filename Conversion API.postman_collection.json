@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "d5600aa0-23b2-4a4d-b17b-a83bc98b852e",
+		"name": "Conversion API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12146915"
+	},
+	"item": [
+		{
+			"name": "GET Transaction Conversion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"any_name\",\n    \"email\": \"any_email@email.com\",\n    \"password\": \"any_password\",\n    \"passwordConfirmation\": \"any_password\"    \n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Conversions saved",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"any_name\",\n    \"email\": \"any_email@email.com\",\n    \"password\": \"any_password\",\n    \"passwordConfirmation\": \"any_password\"    \n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
