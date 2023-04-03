@@ -39,6 +39,13 @@ export async function insertErrorLog(error: string): Promise<void> {
   await db.exec(`INSERT INTO 'ErrorLog' (stack, date) VALUES ('${error}', datetime('now', 'localtime'));`)
 }
 
+export async function listTransactions(): Promise<ITransaction[]> {
+  await createTableTransaction();
+  const db = await openDb();
+  const transactions = await db.all('SELECT * FROM `Transaction`;')
+  return transactions.map((transaction: any) => map(transaction));
+}
+
 export function map(data: any): ITransaction {
   return {
     id: data.id,
