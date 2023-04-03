@@ -1,6 +1,6 @@
 import { AddConversionController } from "@/presentation/controllers/conversion/AddConversion";
 import { type IController } from "@/presentation/protocols/IController";
-import { ConvertCurrency } from "@/data/usecases/ConvertCurrency";
+import { ConvertCurrency } from "@/data/usecases/addConversion/ConvertCurrency";
 import { ConversionApiAdapter } from "@/infra/conversionApi/ConversionApiAdapter";
 import { ConversionRepository } from "@/infra/db/sqlite/conversionRepository/ConversionRepository";
 import { LogRepository } from "@/infra/db/sqlite/logRepository/LogRepository";
