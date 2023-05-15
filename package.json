@@ -1,8 +1,7 @@
 {
-  "name": "recrutamento-conversor-nodejs-jrwanderley17_gmail.com",
+  "name": "currency-converter",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://wanderleyjat@bitbucket.org/recrutamento_jya_nodejs/recrutamento-conversor-nodejs-jrwanderley17_gmail.com.git",
   "author": "Junior Alves <jrwanderley17@gmail.com>",
   "license": "MIT",
   "scripts": {
